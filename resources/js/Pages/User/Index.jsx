@@ -34,7 +34,7 @@ export default function UserIndex({ auth, users }) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {users.data.map(({ id, name, email }) => (
+                                    {users.data.map(({ id, name, email, role }) => (
                                         <tr key={id} className="border-b">
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 {id}
@@ -46,7 +46,7 @@ export default function UserIndex({ auth, users }) {
                                                 {email}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-
+                                                {role}
                                             </td>
                                         </tr>
                                     ))}
