@@ -8,23 +8,23 @@ import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import Selectbox from '@/Components/Selectbox';
 
-export default function UserCreate({ auth }) {
+export default function UserCreate({ user, auth }) {
 
-    const { data, setData, post, errors, processing, recentlySuccessful } = useForm({
-        name: "",
-        email: "",
+    const { data, setData, patch, errors, processing, recentlySuccessful } = useForm({
+        name: user.name,
+        email: user.email,
         password: "",
         password_confirmation: "",
-        role: "user",
+        role: user.role,
     });
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('users.store'), {
+        patch(route('users.update', user.id), {
             preserveScroll: true,
             onSuccess: () => {
-                alert('User created');
+                alert('User updated');
             },
             onError: (errors) => {
                 console.log(errors);
@@ -86,7 +86,7 @@ export default function UserCreate({ auth }) {
                                     </div>
 
                                     <div>
-                                        <InputLabel htmlFor="role" value="Role" />
+                                        <InputLabel htmlFor="role" value={data.role} />
 
                                         <Selectbox onChange={(e) => setData("role", e.target.value)} id="role" currentValue="user" options={[
                                             {
