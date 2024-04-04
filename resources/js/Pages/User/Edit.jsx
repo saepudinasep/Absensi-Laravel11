@@ -45,10 +45,10 @@ export default function UserCreate({ user, auth }) {
                         <div className="p-6 text-gray-900">
                             <section className="max-w-xl">
                                 <header>
-                                    <h2 className="text-lg font-medium text-gray-900">Create User</h2>
+                                    <h2 className="text-lg font-medium text-gray-900">Edit User</h2>
 
                                     <p className="mt-1 text-sm text-gray-600">
-                                        Create a new user with an email address and assign them to roles.
+                                        Edit the information of a user.
                                     </p>
                                 </header>
 
