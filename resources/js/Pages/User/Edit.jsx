@@ -7,6 +7,7 @@ import TextInput from '@/Components/TextInput';
 import { useForm } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 import Selectbox from '@/Components/Selectbox';
+import roles from '@/data/roles.json';
 
 export default function UserCreate({ user, auth }) {
 
@@ -86,18 +87,9 @@ export default function UserCreate({ user, auth }) {
                                     </div>
 
                                     <div>
-                                        <InputLabel htmlFor="role" value={data.role} />
+                                        <InputLabel htmlFor="role" value="Role" />
 
-                                        <Selectbox onChange={(e) => setData("role", e.target.value)} id="role" currentValue="user" options={[
-                                            {
-                                                value: "admin",
-                                                label: "Admin"
-                                            },
-                                            {
-                                                value: "user",
-                                                label: "User"
-                                            }
-                                        ]} />
+                                        <Selectbox onChange={(e) => setData("role", e.target.value)} id="role" currentValue={data.role} options={roles} />
 
                                         <InputError className="mt-2" message={errors.email} />
                                     </div>
